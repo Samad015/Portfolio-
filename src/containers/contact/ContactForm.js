@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {socialMediaLinks} from "../../portfolio";
-import "./ContactForm.scss";
+import "./ContactForm.css";
 
 export default function ContactForm({headingLevel = 2}) {
   const Heading = headingLevel === 3 ? "h3" : "h2";
@@ -23,7 +23,7 @@ export default function ContactForm({headingLevel = 2}) {
       : "";
 
     try {
-      const response = await fetch("https://portfolio-backend15.onrender.com/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(values)

@@ -1,0 +1,27 @@
+.profile-links {
+  @apply flex flex-wrap;
+  gap: 0.5rem 1.1rem;
+  @apply p-0;
+  list-style: none;
+}
+
+.profile-links a {
+  color: var(--accent);
+  text-underline-offset: 0.3em;
+  @apply capitalize;
+}
+
+.profile-links a.profile-icon {
+  @apply grid w-[2.75rem] h-[2.75rem] place-items-center rounded-[50%];
+  background: var(--profile-brand);
+  color: #fff;
+  font-size: 1.25rem;
+  @apply [text-decoration:none];
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.profile-links a.profile-icon:hover,
+.profile-links a.profile-icon:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 0 var(--edge);
+}

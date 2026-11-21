@@ -1,6 +1,6 @@
 import React from "react";
 import {socialMediaLinks} from "../../portfolio";
-import "./SocialMedia.scss";
+import "./SocialMedia.css";
 
 const icons = {
   GitHub: ["fab fa-github", "#333"],

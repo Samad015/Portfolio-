@@ -1,0 +1,27 @@
+.proficiency-note {
+  color: var(--muted);
+}
+
+.proficiency-list {
+  @apply grid gap-[1.35rem];
+  list-style: none;
+  @apply p-0;
+  margin: 1.5rem 0 0;
+}
+
+.proficiency-list li > span {
+  @apply block mb-[0.45rem] font-[700];
+}
+
+.proficiency-track {
+  @apply h-[1.15rem];
+  border: 1px solid var(--edge);
+  @apply rounded-[999px];
+  background: var(--paper);
+  @apply overflow-hidden;
+}
+
+.proficiency-fill {
+  @apply h-full;
+  background: #aaa4f8;
+}

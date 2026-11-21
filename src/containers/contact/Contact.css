@@ -1,0 +1,99 @@
+.contact-section {
+  @apply grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  border: var(--stroke);
+  background: var(--panel);
+  box-shadow: 6px 6px 0 var(--edge);
+}
+
+.contact-intro {
+  @apply grid;
+  align-content: space-between;
+  @apply gap-[2rem];
+  padding: clamp(1.5rem, 4.5vw, 3rem);
+  border-inline-end: var(--stroke);
+  background: var(--blue);
+  color: #fff;
+}
+
+.contact-heading {
+  @apply m-0;
+  font: 800 clamp(2.6rem, 5.5vw, 4.6rem) / 0.98 var(--display-font);
+  @apply tracking-[-0.06em];
+}
+
+.contact-heading img {
+  vertical-align: baseline;
+}
+
+.contact-intro p {
+  @apply max-w-[32ch];
+  margin: 1rem 0 0;
+  @apply leading-[1.6];
+}
+
+.contact-intro a {
+  color: inherit;
+  text-underline-offset: 0.25em;
+  overflow-wrap: anywhere;
+}
+
+.contact-details {
+  @apply grid gap-[0.45rem] mt-[1rem];
+}
+
+.contact-art {
+  @apply grid place-items-center min-h-[10rem];
+  border-top: 1px solid rgba(255, 255, 255, 0.4392156863);
+}
+
+.contact-envelope {
+  @apply relative;
+  width: clamp(6rem, 14vw, 10rem);
+  aspect-ratio: 3/2;
+  margin: 1.5rem 0;
+  transform: rotate(-11deg);
+  border: 2px solid var(--ink);
+  background: var(--coral);
+  box-shadow: 5px 5px 0 var(--ink);
+  transition: transform 180ms ease;
+}
+
+.contact-envelope::before {
+  @apply absolute inset-[0];
+  background: var(--ink);
+  clip-path: polygon(0 0, 50% 64%, 100% 0, 100% 4%, 50% 68%, 0 4%);
+  content: "";
+}
+
+.contact-intro:hover .contact-envelope {
+  transform: translateY(-3px) rotate(-7deg);
+}
+
+@media (max-width: 760px) {
+  .contact-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .contact-intro {
+    grid-template-columns: minmax(0, 1fr) auto;
+    @apply items-center gap-[1.25rem];
+    border-inline-end: 0;
+    border-bottom: var(--stroke);
+  }
+  .contact-art {
+    @apply min-h-[0];
+    border: 0;
+  }
+}
+@media (max-width: 425px) {
+  .contact-intro {
+    grid-template-columns: minmax(0, 1fr);
+    @apply gap-[0.75rem];
+  }
+  .contact-art {
+    justify-items: start;
+  }
+  .contact-envelope {
+    margin: 0.6rem 0 0.3rem 0.4rem;
+  }
+}

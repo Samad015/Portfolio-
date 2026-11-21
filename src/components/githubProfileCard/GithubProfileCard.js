@@ -1,5 +1,5 @@
 import React from "react";
-import "./GithubProfileCard.scss";
+import "./GithubProfileCard.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo, isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";

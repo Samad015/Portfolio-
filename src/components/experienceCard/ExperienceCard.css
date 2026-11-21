@@ -1,0 +1,125 @@
+.experience-card {
+  @apply relative;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
+  @apply rounded-[10px];
+  border: 1px solid rgba(211, 211, 211, 0.397);
+}
+
+.experience-card-dark {
+  @apply relative;
+  background-color: #151d30;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
+  @apply rounded-[10px];
+  border: 1px solid rgba(211, 211, 211, 0.397);
+}
+
+.experience-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
+}
+
+.experience-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 150%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  border-radius: 10px 10px 0px 0px;
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px);
+  @apply h-[11rem] flex items-end justify-center;
+}
+
+.experience-blurred_div {
+  @apply absolute;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  @apply h-[11rem] top-0 left-0 w-full;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.experience-div-company {
+  @apply absolute;
+  background: transparent;
+  @apply h-[9rem] top-0 left-0 w-full flex items-center justify-center;
+}
+
+.experience-text-company {
+  @apply text-center p-[1.5rem] m-0;
+  color: #fff;
+  font-size: 25px;
+  @apply text-center font-[700];
+  text-overflow: ellipsis;
+  @apply overflow-hidden whitespace-nowrap;
+}
+
+.experience-roundedimg {
+  @apply absolute object-cover left-0 right-0 top-[7rem] ml-auto mr-auto w-[8rem] h-[8rem];
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  @apply rounded-[50%];
+}
+
+.experience-text-role {
+  @apply text-center;
+  color: #000000;
+  @apply font-[700];
+  font-size: 25px;
+  @apply m-[0px] pt-[1.5rem];
+  line-height: normal;
+}
+
+.dark-mode-text {
+  color: #ffffff !important;
+}
+
+.experience-text-date {
+  @apply text-center;
+  color: #000000;
+  font-size: 20px;
+  @apply m-[0px] pt-[1rem] font-[600];
+}
+
+.experience-text-desc {
+  @apply text-center;
+}
+
+.experience-text-details {
+  @apply p-[1.5rem] mt-[2rem];
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .experience-text-role {
+    @apply pt-[0.5rem];
+    font-size: 22px;
+  }
+  .experience-text-company {
+    font-size: 22px;
+  }
+  .experience-text-date {
+    font-size: 18px;
+  }
+  .experience-roundedimg {
+    @apply w-[6.5rem] h-[6.5rem];
+  }
+}
+@media (max-width: 768px) {
+  .experience-text-role {
+    font-size: 22px;
+  }
+  .experience-text-company {
+    font-size: 22px;
+  }
+  .experience-text-date {
+    font-size: 18px;
+  }
+  .experience-text-desc {
+    font-size: 16px;
+  }
+}

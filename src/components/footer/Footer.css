@@ -1,0 +1,32 @@
+.site-footer {
+  margin-top: clamp(2rem, 6vw, 4rem);
+  border-top: var(--stroke);
+  background: var(--panel);
+}
+
+.site-footer-inner {
+  @apply box-border w-[var(--content-width)];
+  margin: auto;
+  padding: clamp(1.5rem, 4vw, 2.75rem) 3rem clamp(1.5rem, 4vw, 2.75rem) 0;
+  @apply flex flex-wrap items-center justify-between;
+  gap: 1.25rem 2rem;
+}
+
+.site-footer-name {
+  @apply block;
+  width: fit-content;
+  @apply mb-[0.35rem];
+  color: var(--edge);
+  font: 850 1.55rem/1.12 var(--display-font);
+  @apply tracking-[-0.04em] [text-decoration:none];
+}
+
+.site-footer-email {
+  color: var(--accent);
+  text-underline-offset: 0.25em;
+  overflow-wrap: anywhere;
+}
+
+.site-footer .profile-links {
+  @apply m-0;
+}

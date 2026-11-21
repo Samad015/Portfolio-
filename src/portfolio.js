@@ -1,6 +1,6 @@
 /* Change this file to get your personal Portfolio */
 
-// To change portfolio colors globally go to the  _globalColor.scss file
+// The site theme colors are defined in containers/Main.css.
 
 import emoji from "react-easy-emoji";
 

@@ -1,0 +1,70 @@
+/*Blog Cards Layout*/
+.square {
+  @apply w-[440px] h-[430px];
+  background: #ffffff;
+  @apply rounded-[4px];
+  box-shadow: 0px 20px 50px #d9dbdf;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  @apply mt-[30px];
+}
+
+.square:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.blog-header-text {
+  font-size: 56px;
+  @apply font-[400];
+}
+
+.blog-subtitle {
+  @apply uppercase;
+}
+
+.blog-main-div > * {
+  flex: 1;
+  @apply mb-[30px];
+}
+
+.blog-main-div {
+  @apply flex;
+}
+
+.blog-image-div > img {
+  @apply max-w-full h-auto;
+}
+
+.blog-text-div {
+  @apply grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  @apply gap-[32px];
+}
+
+.subTitle {
+  color: #4a5467;
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .blog-header-text {
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .blog-header-text {
+    font-size: 30px;
+    @apply text-center;
+  }
+  .blog-subtitle {
+    font-size: 16px;
+    line-height: normal;
+    @apply text-center;
+  }
+}
+@media screen and (max-width: 480px) and (min-width: 300px) {
+  .blog-text-div {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

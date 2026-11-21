@@ -1,0 +1,76 @@
+.open-source-grid {
+  @apply grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @apply gap-[1.25rem];
+}
+
+.open-source-card {
+  @apply flex flex-col;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  border: var(--stroke);
+  background: var(--panel);
+  box-shadow: 4px 4px 0 var(--edge);
+}
+
+.open-source-card h2,
+.open-source-card h3 {
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  @apply leading-[1.2] m-0;
+  overflow-wrap: anywhere;
+}
+
+.open-source-card a {
+  color: var(--accent);
+  text-underline-offset: 0.22em;
+}
+
+.open-source-card p {
+  color: var(--muted);
+  margin: 0.85rem 0 1.1rem;
+}
+
+.open-source-meta {
+  @apply flex flex-wrap items-center justify-between;
+  gap: 0.5rem 0.9rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.open-source-meta i {
+  @apply inline-block w-[0.65rem] h-[0.65rem] mr-[0.4rem];
+  border: 1px solid var(--ink);
+  @apply rounded-[50%];
+  background: #f1e05a;
+}
+
+@media (max-width: 640px) {
+  .open-source-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.open-source-card {
+  transition: background-color 210ms ease, color 210ms ease,
+    box-shadow 230ms ease, transform 230ms ease;
+}
+
+.open-source-card:focus-within {
+  --accent: #fff;
+  --muted: #f2e8ff;
+  color: #fff;
+  background: #52197b;
+  box-shadow: 7px 8px 0 var(--edge),
+    0 10px 24px rgba(139, 80, 206, 0.4509803922);
+  transform: translateY(-4px);
+}
+
+@media (hover: hover) {
+  .open-source-card:hover {
+    --accent: #fff;
+    --muted: #f2e8ff;
+    color: #fff;
+    background: #52197b;
+    box-shadow: 7px 8px 0 var(--edge),
+      0 10px 24px rgba(139, 80, 206, 0.4509803922);
+    transform: translateY(-4px);
+  }
+}

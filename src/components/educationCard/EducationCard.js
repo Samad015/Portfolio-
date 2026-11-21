@@ -1,6 +1,6 @@
 import React, {createRef, useContext} from "react";
 import {Fade, Slide} from "react-reveal";
-import "./EducationCard.scss";
+import "./EducationCard.css";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function EducationCard({school, headingLevel = 2}) {

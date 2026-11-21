@@ -1,0 +1,33 @@
+.achievement-heading {
+  font-size: 56px;
+  @apply font-[400];
+  line-height: normal;
+  @apply m-[0px];
+}
+
+.achievement-subtitle {
+  @apply uppercase m-[0px];
+  @apply mb-[50px];
+}
+
+.subTitle {
+  color: #4a5467;
+}
+
+/* Media Query */
+@media (max-width: 1380px) {
+  .achievement-heading {
+    font-size: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .achievement-heading {
+    font-size: 30px;
+    @apply text-center;
+  }
+  .achievement-subtitle {
+    font-size: 16px;
+    line-height: normal;
+    @apply text-center;
+  }
+}

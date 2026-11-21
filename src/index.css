@@ -1,13 +1,15 @@
+@tailwind utilities;
+
 html {
-  scroll-behavior: smooth;
+  @apply scroll-smooth;
 }
 body {
-  margin: 0;
+  @apply m-0;
   font: 1rem / 1.55 system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    @apply scroll-auto;
   }
 }

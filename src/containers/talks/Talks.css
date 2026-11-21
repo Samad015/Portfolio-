@@ -1,0 +1,26 @@
+.talk-header-title {
+  font-size: 56px;
+  @apply font-[400] leading-[0px];
+}
+
+.talk-cards-div {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1rem 1rem;
+}
+
+.subTitle {
+  color: #4a5467;
+}
+
+@media (max-width: 768px) {
+  .talk-header-title {
+    font-size: 30px;
+    @apply text-center;
+  }
+  .talk-header-subtitle {
+    font-size: 16px;
+    line-height: normal;
+    @apply text-center;
+  }
+}

@@ -26,6 +26,23 @@ Open http://localhost:3001. Compose starts the app and a local MongoDB instance,
 
 Edit `src/portfolio.js` for your bio, social links, skills, education, experience, projects, and media. Put your resume in `public/resume.pdf` and set `greeting.resumeLink` to `/resume.pdf`. Projects, experience, education, skills, and resume have dedicated pages. Add links and descriptions directly in the portfolio configuration.
 
+The frontend uses Tailwind CSS. Component styles compose utilities with `@apply`, and the theme tokens live in `src/containers/Main.css`.
+
+## Deploy on Vercel
+
+Import the repository in Vercel using a personal Hobby workspace. The root `vercel.json` builds and serves the React frontend from `build` and routes `/api/contact` to a Node.js function. Select Node.js 22 if prompted.
+
+Add these variables to the Vercel project’s **Settings → Environment Variables** before deploying or redeploying.
+
+| Variable         | Value                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY` | A Resend key with sending access.                                                            |
+| `CONTACT_FROM`   | A sender on a verified Resend domain. For an inbox test, use `onboarding@resend.dev`.        |
+| `CONTACT_TO`     | The inbox that should receive messages. With the test sender, use your Resend account email. |
+| `MONGODB_URI`    | Optional hosted MongoDB connection string, required only to store submissions in MongoDB.    |
+
+Open `/contact` on the deployed Vercel URL and send a test message.
+
 ## Enable contact email
 
 Copy `.env.example` to `.env`. Add your MongoDB connection URI and SMTP credentials from your email provider. Set `CONTACT_FROM` to a verified sender and `CONTACT_TO` to the inbox that should receive messages. Restart the server and send a test message from the Contact page.

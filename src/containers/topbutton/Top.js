@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "./Top.scss";
+import "./Top.css";
 
 export default function Top() {
   const [visible, setVisible] = useState(false);

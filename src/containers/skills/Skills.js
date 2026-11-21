@@ -3,7 +3,7 @@ import {Fade} from "react-reveal";
 import Button from "../../components/button/Button";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
 import {skillsSection} from "../../portfolio";
-import "./Skills.scss";
+import "./Skills.css";
 
 export default function Skills({headingLevel = 1}) {
   if (!skillsSection.display) return null;

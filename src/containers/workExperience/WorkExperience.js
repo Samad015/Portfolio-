@@ -1,7 +1,7 @@
 import React from "react";
 import {Fade} from "react-reveal";
 import {socialMediaLinks, workExperiences} from "../../portfolio";
-import "./WorkExperience.scss";
+import "./WorkExperience.css";
 
 export default function WorkExperience({headingLevel = 1}) {
   if (!workExperiences.display) return null;

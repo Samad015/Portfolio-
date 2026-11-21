@@ -1,0 +1,20 @@
+.centerContent {
+  @apply text-center;
+  margin: auto;
+  @apply block;
+  margin: 0 auto;
+  @apply p-[1.5rem];
+}
+
+.tw-main-div {
+  @apply ml-[15px] mr-[15px] mb-[15px] w-auto p-[1.5rem];
+}
+
+.twitter-component {
+  @apply w-auto p-[1.5rem];
+}
+
+.timeline-Header-title {
+  font-size: 56px;
+  @apply font-[100] !important;
+}

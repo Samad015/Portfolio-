@@ -5,8 +5,7 @@
 }
 
 .splash-container {
-  position: relative;
-  min-height: 100vh;
+  @apply relative min-h-screen;
   min-height: 100svh;
   background: #171c28;
   color: #fff;
@@ -14,22 +13,17 @@
 
 .splash-animation,
 .splash-signature {
-  position: absolute;
-  left: 50%;
+  @apply absolute left-[50%];
   transform: translate(-50%, -50%);
 }
 
 .splash-animation {
-  top: 37.5%;
+  @apply top-[37.5%];
   width: min(50vh, 85vw);
 }
 
 .splash-signature {
-  top: 73%;
-  display: flex;
-  align-items: center;
-  gap: 0.35em;
-  white-space: nowrap;
+  @apply top-[73%] flex items-center gap-[0.35em] whitespace-nowrap;
   font-size: clamp(1.6rem, 4.4vw, 2.5rem);
 }
 
@@ -39,5 +33,5 @@
 
 .splash-signature strong {
   font-family: Agustina, cursive;
-  font-weight: 400;
+  @apply font-[400];
 }

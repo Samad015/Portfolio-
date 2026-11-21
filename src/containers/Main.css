@@ -1,0 +1,104 @@
+.site {
+  --content-width: min(73rem, calc(100% - 2.5rem));
+  --display-font: system-ui, sans-serif;
+  --mono-font: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --ink: #172035;
+  --ivory: #fff7e9;
+  --blue: #2445d8;
+  --coral: #ff896f;
+  --paper: var(--ivory);
+  --panel: #fffdf6;
+  --edge: var(--ink);
+  --accent: #2541be;
+  --muted: #48516a;
+  --stroke: 2px solid var(--edge);
+  color-scheme: light;
+  background: var(--paper);
+  color: var(--edge);
+  @apply min-h-screen;
+}
+
+.site.dark-mode {
+  --paper: #12192b;
+  --panel: #202a43;
+  --edge: #fff7e9;
+  --accent: #b5c7ff;
+  --muted: #d1dbf2;
+  color-scheme: dark;
+}
+
+.site .dark-mode {
+  color: var(--edge);
+}
+
+.site :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.portfolio-page {
+  @apply min-h-[65vh];
+}
+
+.site .main,
+.site .education-section,
+.site .experience-container,
+.site .skills-container {
+  @apply box-border w-[var(--content-width)];
+  margin: clamp(2rem, 6vw, 4.5rem) auto;
+}
+
+.page-sheet,
+.site .education-section,
+.site .experience-container,
+.site .skills-container,
+.site #skills {
+  border: var(--stroke);
+  background: var(--panel);
+  box-shadow: 5px 5px 0 var(--edge);
+  padding: clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.page-sheet p {
+  margin: 1rem 0 0;
+}
+
+.site .heading,
+.site .contact-title,
+.site .experience-heading,
+.site .education-heading,
+.site .skills-heading,
+.site .achievement-heading {
+  font: 830 clamp(2.45rem, 6vw, 5rem) / 0.99 var(--display-font);
+  @apply tracking-[-0.07em] mt-0;
+}
+
+.site .subTitle {
+  color: var(--muted) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site *,
+  .site *::before,
+  .site *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+.home-section {
+  @apply flow-root;
+  scroll-margin-top: 1.25rem;
+}
+
+.page-sheet p + div {
+  @apply mt-[1rem];
+}
+
+.resume-preview {
+  @apply block box-border w-full;
+  height: min(78vh, 60rem);
+  @apply mt-[1.5rem];
+  border: var(--stroke);
+  background: var(--paper);
+}

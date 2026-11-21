@@ -1,7 +1,7 @@
 import React from "react";
 import SocialMedia from "../socialMedia/SocialMedia";
 import {greeting, socialMediaLinks} from "../../portfolio";
-import "./Footer.scss";
+import "./Footer.css";
 
 export default function Footer() {
   return (

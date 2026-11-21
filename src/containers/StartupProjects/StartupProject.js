@@ -2,7 +2,7 @@ import React from "react";
 import {Fade} from "react-reveal";
 import ArcadeJump from "../greeting/ArcadeJump";
 import {bigProjects} from "../../portfolio";
-import "./StartupProjects.scss";
+import "./StartupProjects.css";
 
 const portfolioStack = ["React", "Express", "MongoDB", "Docker"];
 

@@ -1,0 +1,34 @@
+.skills-service-list {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  @apply gap-[0.85rem];
+  margin: 1.75rem 0;
+  @apply p-0;
+  list-style: none;
+}
+
+.skills-service-list li {
+  @apply flex items-start gap-[0.75rem] p-[1rem];
+  border: var(--stroke);
+  background: var(--paper);
+  @apply font-[750];
+}
+
+.skills-service-list li span {
+  @apply grid place-items-center;
+  flex: 0 0 1.6rem;
+  @apply h-[1.6rem];
+  border: 1px solid var(--ink);
+  background: var(--coral);
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+
+.skills-invitation {
+  @apply flex flex-wrap items-center justify-between gap-[1rem];
+}
+
+.skills-invitation p {
+  @apply m-0;
+  color: var(--muted);
+}

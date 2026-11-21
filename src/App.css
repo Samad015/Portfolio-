@@ -1,0 +1,22 @@
+.App {
+  @apply text-center w-full overflow-x-hidden;
+}
+
+.App-logo {
+  @apply h-[40vmin];
+}
+
+.App-header {
+  background-color: #282c34;
+  @apply min-h-screen flex flex-col items-center justify-center;
+  font-size: calc(0.625rem + 2vmin);
+  color: #ffffff;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.subTitle {
+  color: #4a5467;
+}

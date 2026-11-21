@@ -3,7 +3,7 @@ import {Fade} from "react-reveal";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {contactInfo} from "../../portfolio";
 import ContactForm from "./ContactForm";
-import "./Contact.scss";
+import "./Contact.css";
 
 export default function Contact({headingLevel = 1}) {
   const Heading = headingLevel === 2 ? "h2" : "h1";

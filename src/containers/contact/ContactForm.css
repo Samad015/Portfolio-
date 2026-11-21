@@ -1,0 +1,78 @@
+.contact-form {
+  @apply grid;
+  align-content: start;
+  @apply gap-[1.4rem] min-w-[0];
+  padding: clamp(1.5rem, 4.5vw, 3rem);
+}
+
+.contact-form h2,
+.contact-form h3 {
+  @apply m-0;
+  font: 800 clamp(1.65rem, 3vw, 2.3rem) / 1.06 var(--display-font);
+  @apply tracking-[-0.045em];
+}
+
+.contact-form-fields {
+  @apply grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @apply gap-[1rem];
+}
+
+.contact-field {
+  @apply grid gap-[0.35rem];
+}
+
+.contact-field-message {
+  grid-column: 1/-1;
+}
+
+.contact-field label {
+  font-size: 0.875rem;
+  @apply font-[750];
+}
+
+.contact-field input,
+.contact-field textarea {
+  @apply box-border min-w-[0] w-full;
+  padding: 0.65rem 0.75rem;
+  border: var(--stroke);
+  background: var(--paper);
+  color: inherit;
+  font: inherit;
+}
+
+.contact-field textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: start;
+  @apply m-0;
+}
+
+.contact-form button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.contact-submit-icon {
+  margin-inline-start: 0.6rem;
+}
+
+.contact-status {
+  @apply m-0;
+}
+
+.contact-status:empty {
+  @apply absolute;
+}
+
+@media (max-width: 480px) {
+  .contact-form-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.contact-status a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}

@@ -6,7 +6,7 @@ import {
   talkSection
 } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
-import "./Header.scss";
+import "./Header.css";
 
 export default function Header() {
   const {isDark, changeTheme} = useContext(StyleContext);

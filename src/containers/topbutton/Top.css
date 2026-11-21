@@ -1,0 +1,14 @@
+#topButton {
+  @apply fixed bottom-[20px] right-[30px] z-[99];
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--edge);
+  background-color: var(--coral);
+  color: var(--ink);
+  @apply cursor-pointer leading-[1] w-[2.75rem] h-[2.75rem] p-0;
+  font-size: 25px;
+}
+
+#topButton:hover {
+  background-color: var(--ivory);
+  transition: all ease-in-out 0.2s;
+}

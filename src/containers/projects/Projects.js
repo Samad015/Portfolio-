@@ -1,7 +1,7 @@
 import React from "react";
 import {Fade} from "react-reveal";
 import {openSource, socialMediaLinks} from "../../portfolio";
-import "./Project.scss";
+import "./Project.css";
 
 export default function OpenSourceProjects({headingLevel = 1}) {
   const Heading = headingLevel === 2 ? "h2" : "h1";

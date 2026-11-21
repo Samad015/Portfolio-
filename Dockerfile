@@ -1,6 +1,6 @@
 FROM node:22-bookworm-slim AS build
 WORKDIR /app
-COPY package.json package-lock.json .npmrc ./
+COPY package.json package-lock.json .npmrc tailwind.config.js ./
 RUN npm ci
 COPY public ./public
 COPY src ./src

@@ -27,7 +27,7 @@ import {
 } from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
-import "./Main.scss";
+import "./Main.css";
 
 const homeSections = [
   "skills",
@@ -169,10 +169,7 @@ function HomePage() {
 
 export default function Main() {
   const path = window.location.pathname.replace(/\/$/, "") || "/";
-  const [isDark, setIsDark] = useLocalStorage(
-    "isDark",
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+  const [isDark, setIsDark] = useLocalStorage("isDark", false);
   const homeAnchor = path === "/" && window.location.hash.startsWith("#home-");
   const [loading, setLoading] = useState(
     path === "/" &&

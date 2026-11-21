@@ -1,0 +1,164 @@
+.greet-main {
+  @apply w-[var(--content-width)];
+  margin: clamp(2.5rem, 8vw, 6.5rem) auto clamp(2rem, 6vw, 4rem);
+  @apply grid;
+  grid-template-columns: 1.04fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  @apply items-center;
+}
+
+.greeting-copy {
+  animation: enter-copy 480ms ease-out both;
+}
+
+.greeting-label {
+  margin: 0 0 1rem;
+  font: 750 0.82rem/1.3 var(--mono-font);
+  @apply uppercase tracking-[0.12em];
+}
+
+.greeting-copy h1 {
+  @apply m-0;
+  font: 850 clamp(3.6rem, 7.5vw, 7.25rem) / 0.94 var(--display-font);
+  @apply tracking-[-0.065em];
+}
+
+.greeting-copy h1 span {
+  @apply block;
+  color: var(--accent);
+}
+
+.greeting-description {
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  @apply max-w-[36ch];
+  margin: 1.35rem 0 1.65rem;
+  color: var(--muted);
+}
+
+.greeting-actions {
+  @apply flex flex-wrap items-center;
+  gap: 1rem 1.5rem;
+}
+
+.greeting-actions .resume-button {
+  background: var(--panel);
+  border-color: var(--edge);
+  color: var(--edge);
+}
+
+.greeting-portrait {
+  @apply relative;
+  isolation: isolate;
+  justify-self: center;
+  width: min(100%, 29rem);
+  aspect-ratio: 1.07;
+  @apply m-0;
+  animation: enter-panel 520ms 85ms ease-out both;
+}
+
+.greeting-portrait::before,
+.greeting-portrait::after {
+  content: "";
+  @apply absolute inset-[0];
+  clip-path: polygon(
+    13% 39%,
+    19% 32%,
+    84% 32%,
+    89% 38%,
+    89% 76%,
+    62% 96%,
+    34% 96%,
+    13% 80%
+  );
+}
+
+.greeting-portrait::before {
+  @apply z-[-1];
+  background: var(--edge);
+  transform: translate(5px, 6px);
+}
+
+.greeting-portrait::after {
+  @apply z-[-1];
+  background: radial-gradient(rgba(255, 255, 255, 0.27) 1px, transparent 1.5px)
+      0 0/12px 12px,
+    var(--blue);
+}
+
+.portrait-orbit {
+  @apply absolute z-[-2] top-[20%] right-[2%] w-[23%];
+  aspect-ratio: 1;
+  border: 0.55rem solid var(--coral);
+  border-left-color: transparent;
+  @apply rounded-[50%];
+  transform: rotate(-28deg);
+}
+
+.greeting-portrait img {
+  @apply absolute inset-[0] w-full h-full object-contain;
+  object-position: center bottom;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 49%,
+    89% 49%,
+    89% 76%,
+    62% 96%,
+    34% 96%,
+    13% 80%,
+    13% 49%,
+    0 49%
+  );
+  filter: grayscale(1) contrast(1.04);
+}
+
+.portrait-mark {
+  @apply absolute left-[8%] top-[65%] grid place-items-center w-[15%];
+  aspect-ratio: 1.25;
+  border: 2px solid var(--ink);
+  background: var(--coral);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  transform: rotate(-12deg);
+  font: 800 clamp(0.95rem, 2.8vw, 1.55rem) / 1 var(--mono-font);
+}
+
+.portrait-dots {
+  @apply absolute right-[9%] top-[74%] w-[17%];
+  aspect-ratio: 2;
+  background: radial-gradient(circle, var(--ink) 0 25%, transparent 28%) 0 0/25%
+      50%,
+    var(--coral);
+  border: 2px solid var(--ink);
+  transform: rotate(-13deg);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+@keyframes enter-copy {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes enter-panel {
+  from {
+    opacity: 0;
+    transform: translate(7px, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@media (max-width: 740px) {
+  .greet-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .greeting-portrait {
+    width: min(100%, 25rem);
+  }
+}

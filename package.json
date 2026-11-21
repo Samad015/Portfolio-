@@ -20,16 +20,15 @@
     "react-reveal": "^1.2.2",
     "react-scripts": "^5.0.1",
     "react-test-renderer": "^16.10.2",
-    "react-twitter-embed": "3.0.3",
-    "sass": "^1.32.8"
+    "react-twitter-embed": "3.0.3"
   },
   "scripts": {
     "start": "node --env-file-if-exists=.env server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
-    "check-format": "prettier -c \"./**/*.{js,css,json,scss}\"",
+    "format": "prettier --write \"./**/*.{js,css,json}\"",
+    "check-format": "prettier -c \"./**/*.{js,css,json}\"",
     "dev": "react-scripts start"
   },
   "eslintConfig": {
@@ -55,8 +54,12 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "dotenv": "^8.2.0",
-    "prettier": "^2.3.1"
+    "prettier": "^2.3.1",
+    "tailwindcss": "3.3.3"
   },
   "license": "GPL-3.0-only",
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": "22.x"
+  }
 }

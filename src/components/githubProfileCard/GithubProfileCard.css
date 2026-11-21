@@ -1,0 +1,86 @@
+.profile-image {
+  @apply rounded-[50%];
+  border: 0.5rem solid #6c63ff;
+  @apply ml-auto w-full max-w-[350px] h-auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 30px 30px -30px;
+  transition: all 0.3s ease-out;
+}
+
+.profile-image:hover {
+  box-shadow: none;
+}
+
+.prof-title {
+  @apply m-0;
+  font-size: 40px;
+  @apply font-[400];
+}
+
+.location-div {
+  text-shadow: #ffebcd;
+}
+
+.opp-div {
+  @apply pb-[1rem];
+}
+
+.row {
+  @apply flex;
+}
+
+.main-content-profile {
+  flex: 80%;
+}
+
+.image-content-profile {
+  @apply text-right;
+  flex: 20%;
+  @apply max-w-full h-auto;
+}
+
+.bio-text {
+  @apply leading-[30px];
+  font-size: 22px;
+}
+
+.desc-prof {
+  @apply leading-[45px];
+  font-size: 19px;
+}
+
+.subTitle {
+  color: #4a5467;
+}
+
+@media (max-width: 768px) {
+  .row {
+    @apply flex flex-col;
+  }
+  .main-content-profile {
+    @apply text-center;
+    order: 2;
+  }
+  .bio-text {
+    font-size: 16px;
+  }
+  .image-content-profile {
+    @apply ml-auto mr-auto;
+    order: 1;
+  }
+  .desc-prof {
+    @apply leading-[30px];
+    font-size: 16px;
+  }
+  .profile-image {
+    @apply ml-auto mr-auto w-full max-w-[250px] h-auto;
+  }
+  .profile-image:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 50px 50px -50px;
+    transition: 0.3s ease-out;
+  }
+  .prof-title {
+    @apply pb-[1rem];
+    font-size: 32px;
+    @apply text-center;
+  }
+}

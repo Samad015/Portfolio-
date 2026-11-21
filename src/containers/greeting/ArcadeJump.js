@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./ArcadeJump.scss";
+import "./ArcadeJump.css";
 
 export default function ArcadeJump() {
   const [jumps, setJumps] = useState(0);

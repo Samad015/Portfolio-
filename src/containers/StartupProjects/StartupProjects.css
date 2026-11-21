@@ -1,0 +1,216 @@
+.project-showcase,
+.portfolio-case-study {
+  --project-paper: #fff7e9;
+}
+
+.featured-project,
+.case-study-intro {
+  @apply grid;
+  grid-template-columns: 1fr 0.92fr;
+  @apply items-stretch min-w-[0] mb-[2.5rem];
+}
+
+.featured-project {
+  background: var(--panel);
+  border: var(--stroke);
+  box-shadow: 6px 6px 0 var(--edge);
+}
+
+.featured-project-copy {
+  @apply self-center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.project-title,
+.project-entry h2,
+.case-study-details h2 {
+  @apply m-0;
+  font: 800 clamp(1.75rem, 4vw, 3rem) / 1.05 var(--display-font);
+  @apply tracking-[-0.045em];
+}
+
+.featured-project p,
+.case-study-intro p,
+.project-entry p {
+  @apply max-w-[56ch];
+}
+
+.project-stack {
+  @apply flex flex-wrap gap-[0.45rem];
+  margin: 1.25rem 0;
+  @apply p-0;
+  list-style: none;
+}
+
+.project-stack li {
+  border: 1px solid var(--edge);
+  background: var(--paper);
+  padding: 0.23rem 0.58rem;
+  font: 600 0.75rem/1.45 ui-monospace, monospace;
+}
+
+.portfolio-preview {
+  @apply grid min-h-[15rem] place-items-center overflow-hidden;
+  border-left: var(--stroke);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background: radial-gradient(
+        rgba(255, 255, 255, 0.2862745098) 1.1px,
+        transparent 1.1px
+      )
+      0 0/16px 16px,
+    var(--blue);
+  color: var(--ink);
+}
+
+.portfolio-preview-window {
+  width: min(100%, 20.5rem);
+  border: 2px solid var(--ink);
+  background: var(--project-paper);
+  box-shadow: 7px 7px 0 var(--ink);
+  transform: rotate(-4deg);
+  transition: transform 220ms ease;
+}
+
+.featured-project:hover .portfolio-preview-window {
+  transform: rotate(0);
+}
+
+.portfolio-preview-bar {
+  @apply flex gap-[0.3rem];
+  border-bottom: 2px solid var(--ink);
+  background: var(--coral);
+  padding: 0.55rem 0.6rem;
+}
+
+.portfolio-preview-bar i {
+  @apply w-[0.36rem] h-[0.36rem];
+  border: 1px solid var(--ink);
+  @apply rounded-[50%];
+}
+
+.portfolio-preview-bar i:first-child {
+  background: var(--ink);
+}
+
+.portfolio-preview-layout {
+  @apply grid;
+  grid-template-columns: 1.2fr 1fr;
+  @apply items-center gap-[0.8rem];
+  padding: 1rem 0.9rem;
+}
+
+.portfolio-preview-copy {
+  @apply grid gap-[0.4rem];
+}
+
+.portfolio-preview-copy span {
+  @apply h-[0.48rem];
+  background: var(--ink);
+}
+
+.portfolio-preview-copy span:nth-child(2) {
+  @apply w-[75%];
+}
+
+.portfolio-preview-copy span:last-child {
+  @apply w-[45%] h-[0.34rem] mt-[0.3rem];
+  background: var(--blue);
+}
+
+.portfolio-preview-mark {
+  @apply grid place-items-center min-h-[3.9rem];
+  border: 2px solid var(--ink);
+  background: var(--coral);
+  font: 900 clamp(1.7rem, 4vw, 3.2rem) / 1 var(--display-font);
+  @apply tracking-[-0.06em];
+}
+
+.portfolio-preview-grid {
+  @apply grid;
+  grid-template-columns: repeat(3, 1fr);
+  @apply gap-[0.5rem];
+  padding: 0 0.9rem 0.9rem;
+}
+
+.portfolio-preview-grid span {
+  @apply h-[1.3rem];
+  border: 1px solid var(--ink);
+}
+
+.project-entry {
+  border-top: var(--stroke);
+  padding: 1.5rem 0;
+  @apply flex items-start justify-between gap-[2rem] flex-wrap;
+}
+
+.project-entry img {
+  width: min(100%, 19rem);
+  border: var(--stroke);
+  box-shadow: 4px 4px 0 var(--edge);
+}
+
+.project-links {
+  @apply flex flex-wrap gap-[1rem];
+}
+
+.project-links a,
+.project-back,
+.contact-page a {
+  color: var(--accent);
+  text-underline-offset: 0.25em;
+}
+
+.project-back {
+  @apply inline-block mb-[1.5rem] font-[700];
+}
+
+.case-study-intro {
+  @apply items-center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+
+.case-study-intro .portfolio-preview {
+  border: var(--stroke);
+  box-shadow: 5px 5px 0 var(--edge);
+}
+
+.case-study-details {
+  border: var(--stroke);
+  background: var(--panel);
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.case-study-details dl {
+  @apply grid;
+  grid-template-columns: repeat(3, 1fr);
+  @apply gap-[1.25rem] mb-0;
+}
+
+.case-study-details dl > div {
+  border-top: var(--stroke);
+  @apply pt-[0.75rem];
+}
+
+.case-study-details dt {
+  @apply font-[800];
+}
+
+.case-study-details dd {
+  margin: 0.35rem 0 0;
+}
+
+@media (max-width: 720px) {
+  .featured-project,
+  .case-study-intro,
+  .case-study-details dl {
+    grid-template-columns: 1fr;
+  }
+  .featured-project .portfolio-preview {
+    border-left: 0;
+    border-top: var(--stroke);
+  }
+}
+.case-study-arcade {
+  --line: var(--edge);
+  @apply mt-[1.5rem];
+}

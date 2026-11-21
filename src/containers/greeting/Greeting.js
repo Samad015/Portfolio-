@@ -3,7 +3,7 @@ import portrait from "../../assets/images/samad-cutout.png";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 import {greeting} from "../../portfolio";
-import "./Greeting.scss";
+import "./Greeting.css";
 
 export default function Greeting() {
   if (!greeting.displayGreeting) return null;
