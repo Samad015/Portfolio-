@@ -7,6 +7,7 @@ services:
     environment:
       MONGODB_URI: ${MONGODB_URI:-mongodb://mongo:27017}
       MONGODB_DATABASE: ${MONGODB_DATABASE:-samad_portfolio}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-587}
       SMTP_USER: ${SMTP_USER:-}

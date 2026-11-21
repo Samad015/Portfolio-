@@ -32,4 +32,17 @@ Copy `.env.example` to `.env`. Add your MongoDB connection URI and SMTP credenti
 
 The server validates submissions, limits request volume, writes messages to MongoDB, and relays them through SMTP. Replies go to the visitor’s email address. Keep credentials in the server environment.
 
+### Contact form on Render
+
+Deploy as a Render Web Service using `npm ci && npm run build` as the build command and `npm start` as the start command. Add these variables in the service’s **Environment** settings and redeploy.
+
+| Variable         | Value                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------- |
+| `MONGODB_URI`    | A hosted MongoDB connection string accessible from Render, such as a MongoDB Atlas URI. |
+| `RESEND_API_KEY` | A Resend API key with sending access.                                                   |
+| `CONTACT_FROM`   | A sender address on a domain verified in Resend.                                        |
+| `CONTACT_TO`     | The inbox that should receive contact messages.                                         |
+
+When `RESEND_API_KEY` is set, the server sends contact notifications via HTTPS. Render Free Web Services block outbound SMTP ports 25, 465, and 587. [Render documentation](https://render.com/docs/free)
+
 # Portfolio-

@@ -13,6 +13,7 @@ const db =
     serverSelectionTimeoutMS: 5000
   });
 const mail =
+  !env.RESEND_API_KEY &&
   env.SMTP_HOST &&
   env.SMTP_USER &&
   env.SMTP_PASS &&
@@ -80,17 +81,37 @@ app.post("/api/contact", contactLimit, async (req, res) => {
   }
 
   try {
-    if (!mail || !env.CONTACT_FROM || !env.CONTACT_TO) {
+    if (!env.CONTACT_FROM || !env.CONTACT_TO) {
       throw new Error("Contact email is not configured");
     }
-    const delivery = await mail.sendMail({
+    const notification = {
       from: env.CONTACT_FROM,
       to: env.CONTACT_TO,
-      replyTo: {address: email, name: ""},
       subject: "New message from Samad’s portfolio",
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`
-    });
-    if (!delivery.accepted.length) throw new Error("Recipient rejected");
+    };
+    if (env.RESEND_API_KEY) {
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({...notification, reply_to: email}),
+        signal: AbortSignal.timeout(10000)
+      });
+      const result = await response.json();
+      if (!response.ok || !result?.id) {
+        throw new Error(`Contact email API returned HTTP ${response.status}`);
+      }
+    } else {
+      if (!mail) throw new Error("Contact email is not configured");
+      const delivery = await mail.sendMail({
+        ...notification,
+        replyTo: {address: email, name: ""}
+      });
+      if (!delivery.accepted.length) throw new Error("Recipient rejected");
+    }
   } catch {
     console.error("Contact message saved, but email delivery failed.");
     await messages
