@@ -1,0 +1,25 @@
+.main-button {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.72rem 1.05rem;
+  border: 2px solid var(--ink);
+  background: var(--coral);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--accent);
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 130ms ease, box-shadow 130ms ease;
+}
+.main-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+.main-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+.project-button {
+  text-align: center;
+}

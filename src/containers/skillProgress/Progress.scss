@@ -1,0 +1,30 @@
+.proficiency-note {
+  color: var(--muted);
+}
+
+.proficiency-list {
+  display: grid;
+  gap: 1.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.proficiency-list li > span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-weight: 700;
+}
+
+.proficiency-track {
+  height: 1.15rem;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.proficiency-fill {
+  height: 100%;
+  background: #aaa4f8;
+}

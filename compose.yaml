@@ -1,0 +1,37 @@
+services:
+  portfolio:
+    build: .
+    init: true
+    ports:
+      - "127.0.0.1:${PORT:-3001}:3001"
+    environment:
+      MONGODB_URI: ${MONGODB_URI:-mongodb://mongo:27017}
+      MONGODB_DATABASE: ${MONGODB_DATABASE:-samad_portfolio}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      CONTACT_FROM: ${CONTACT_FROM:-}
+      CONTACT_TO: ${CONTACT_TO:-}
+    depends_on:
+      mongo:
+        condition: service_healthy
+  mongo:
+    image: mongo:8.0
+    volumes:
+      - portfolio-data:/data/db
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "--quiet",
+          "--eval",
+          "quit(db.adminCommand({ping: 1}).ok === 1 ? 0 : 1)"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+volumes:
+  portfolio-data:
