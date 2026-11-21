@@ -31,4 +31,5 @@ Edit `src/portfolio.js` for your bio, social links, skills, education, experienc
 Copy `.env.example` to `.env`. Add your MongoDB connection URI and SMTP credentials from your email provider. Set `CONTACT_FROM` to a verified sender and `CONTACT_TO` to the inbox that should receive messages. Restart the server and send a test message from the Contact page.
 
 The server validates submissions, limits request volume, writes messages to MongoDB, and relays them through SMTP. Replies go to the visitor’s email address. Keep credentials in the server environment.
+
 # Portfolio-

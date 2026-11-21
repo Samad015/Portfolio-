@@ -22,6 +22,7 @@ const mail =
     secure: Number(env.SMTP_PORT) === 465,
     requireTLS: true,
     connectionTimeout: 8000,
+    greetingTimeout: 8000,
     socketTimeout: 15000,
     auth: {user: env.SMTP_USER, pass: env.SMTP_PASS}
   });
@@ -53,10 +54,10 @@ app.post("/api/contact", contactLimit, async (req, res) => {
       .json({message: "Enter your name, a valid email, and a message."});
   }
 
-  if (!db || !mail || !env.CONTACT_FROM || !env.CONTACT_TO) {
+  if (!db) {
     return res
       .status(503)
-      .json({message: "The contact form is awaiting email setup."});
+      .json({message: "The contact form is awaiting database setup."});
   }
 
   const messages = db
@@ -72,6 +73,16 @@ app.post("/api/contact", contactLimit, async (req, res) => {
       status: "pending"
     });
     id = saved.insertedId;
+  } catch {
+    return res.status(503).json({
+      message: "Your message could not be saved. Please try again later."
+    });
+  }
+
+  try {
+    if (!mail || !env.CONTACT_FROM || !env.CONTACT_TO) {
+      throw new Error("Contact email is not configured");
+    }
     const delivery = await mail.sendMail({
       from: env.CONTACT_FROM,
       to: env.CONTACT_TO,
@@ -81,13 +92,14 @@ app.post("/api/contact", contactLimit, async (req, res) => {
     });
     if (!delivery.accepted.length) throw new Error("Recipient rejected");
   } catch {
-    if (id)
-      await messages
-        .updateOne({_id: id}, {$set: {status: "failed"}})
-        .catch(() => {});
-    return res
-      .status(503)
-      .json({message: "Your email could not be sent. Please try again later."});
+    console.error("Contact message saved, but email delivery failed.");
+    await messages
+      .updateOne({_id: id}, {$set: {status: "failed"}})
+      .catch(() => {});
+    return res.status(201).json({
+      message:
+        "Thanks! Your message was saved. Email notification could not be sent."
+    });
   }
 
   await messages.updateOne({_id: id}, {$set: {status: "sent"}}).catch(() => {
@@ -103,11 +115,9 @@ app.use(express.static(buildPath));
 app.get(/.*/, (req, res) => res.sendFile(path.join(buildPath, "index.html")));
 app.use((error, req, res, next) => {
   const status = error.status || 500;
-  res
-    .status(status)
-    .json({
-      message: status < 500 ? "Invalid request." : "Service unavailable."
-    });
+  res.status(status).json({
+    message: status < 500 ? "Invalid request." : "Service unavailable."
+  });
 });
 
 app.listen(Number(env.PORT || 3001), () => {
