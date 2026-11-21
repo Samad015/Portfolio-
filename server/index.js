@@ -76,6 +76,7 @@ app.post("/api/contact", contactLimit, async (req, res) => {
 
   try {
     if (!env.CONTACT_FROM || !env.CONTACT_TO) {
+      console.error("CONTACT_FROM or CONTACT_TO is missing.");
       throw new Error("Contact email is not configured");
     }
     const notification = {
@@ -96,18 +97,31 @@ app.post("/api/contact", contactLimit, async (req, res) => {
       });
       const result = await response.json();
       if (!response.ok || !result?.id) {
-        throw new Error(`Contact email API returned HTTP ${response.status}`);
+        console.error("Resend contact email response:", response.status);
+        if (typeof result?.message === "string") {
+          if (result.message.includes("only send testing emails")) {
+            console.error(
+              "Resend test sender requires the account email as CONTACT_TO."
+            );
+          } else if (result.message.includes("domain is not verified")) {
+            console.error("Resend requires a verified CONTACT_FROM domain.");
+          }
+        }
+        throw new Error("Resend did not accept the contact email");
       }
     } else {
-      if (!mail) throw new Error("Contact email is not configured");
+      if (!mail) {
+        console.error("RESEND_API_KEY and SMTP configuration are missing.");
+        throw new Error("Contact email is not configured");
+      }
       const delivery = await mail.sendMail({
         ...notification,
         replyTo: {address: email, name: ""}
       });
       if (!delivery.accepted.length) throw new Error("Recipient rejected");
     }
-  } catch {
-    console.error("Contact email delivery failed.");
+  } catch (error) {
+    console.error("Contact email delivery failed:", error.name);
     if (!id) {
       return res.status(503).json({
         message: "Your message could not be sent. Please try again later."
