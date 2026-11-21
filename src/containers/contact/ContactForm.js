@@ -23,7 +23,7 @@ export default function ContactForm({headingLevel = 2}) {
       : "";
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://portfolio-backend15.onrender.com/api/contact", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(values)
