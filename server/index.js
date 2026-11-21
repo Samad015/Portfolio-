@@ -55,29 +55,23 @@ app.post("/api/contact", contactLimit, async (req, res) => {
       .json({message: "Enter your name, a valid email, and a message."});
   }
 
-  if (!db) {
-    return res
-      .status(503)
-      .json({message: "The contact form is awaiting database setup."});
-  }
-
-  const messages = db
-    .db(env.MONGODB_DATABASE || "samad_portfolio")
-    .collection("messages");
+  const messages =
+    db &&
+    db.db(env.MONGODB_DATABASE || "samad_portfolio").collection("messages");
   let id;
-  try {
-    const saved = await messages.insertOne({
-      name,
-      email,
-      message,
-      createdAt: new Date(),
-      status: "pending"
-    });
-    id = saved.insertedId;
-  } catch {
-    return res.status(503).json({
-      message: "Your message could not be saved. Please try again later."
-    });
+  if (messages) {
+    try {
+      const saved = await messages.insertOne({
+        name,
+        email,
+        message,
+        createdAt: new Date(),
+        status: "pending"
+      });
+      id = saved.insertedId;
+    } catch (error) {
+      console.error("Contact message database write failed:", error.name);
+    }
   }
 
   try {
@@ -113,7 +107,12 @@ app.post("/api/contact", contactLimit, async (req, res) => {
       if (!delivery.accepted.length) throw new Error("Recipient rejected");
     }
   } catch {
-    console.error("Contact message saved, but email delivery failed.");
+    console.error("Contact email delivery failed.");
+    if (!id) {
+      return res.status(503).json({
+        message: "Your message could not be sent. Please try again later."
+      });
+    }
     await messages
       .updateOne({_id: id}, {$set: {status: "failed"}})
       .catch(() => {});
@@ -123,9 +122,11 @@ app.post("/api/contact", contactLimit, async (req, res) => {
     });
   }
 
-  await messages.updateOne({_id: id}, {$set: {status: "sent"}}).catch(() => {
-    console.error("Email sent, but the database could not record delivery.");
-  });
+  if (id) {
+    await messages.updateOne({_id: id}, {$set: {status: "sent"}}).catch(() => {
+      console.error("Email sent, but the database could not record delivery.");
+    });
+  }
   return res.json({message: "Thanks! Your message was sent."});
 });
 
