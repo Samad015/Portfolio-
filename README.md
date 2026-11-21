@@ -34,7 +34,7 @@ The server validates submissions, limits request volume, writes messages to Mong
 
 ### Contact form on Render
 
-Deploy as a Render Web Service using `npm ci && npm run build` as the build command and `npm start` as the start command. Add these variables in the service’s **Environment** settings and redeploy.
+In Render, select **New → Blueprint** and connect this repository. The included `render.yaml` provisions a Node Web Service and prompts for the values below. Open the Web Service’s URL once it deploys. If you already have a Node Web Service, add these variables in its **Environment** settings and redeploy.
 
 | Variable         | Value                                                                                   |
 | ---------------- | --------------------------------------------------------------------------------------- |
